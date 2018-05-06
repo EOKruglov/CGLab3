@@ -1,0 +1,14 @@
+D:\Vstudio\Git\CGLab3\CGLAB3\bin\Debug\CGLAB3.exe.config
+D:\Vstudio\Git\CGLab3\CGLAB3\bin\Debug\CGLAB3.exe
+D:\Vstudio\Git\CGLab3\CGLAB3\bin\Debug\CGLAB3.pdb
+D:\Vstudio\Git\CGLab3\CGLAB3\bin\Debug\OpenTK.dll
+D:\Vstudio\Git\CGLab3\CGLAB3\bin\Debug\OpenTK.GLControl.dll
+D:\Vstudio\Git\CGLab3\CGLAB3\bin\Debug\OpenTK.pdb
+D:\Vstudio\Git\CGLab3\CGLAB3\bin\Debug\OpenTK.xml
+D:\Vstudio\Git\CGLab3\CGLAB3\bin\Debug\OpenTK.GLControl.xml
+D:\Vstudio\Git\CGLab3\CGLAB3\obj\Debug\CGLAB3.csprojResolveAssemblyReference.cache
+D:\Vstudio\Git\CGLab3\CGLAB3\obj\Debug\CGLAB3.Form1.resources
+D:\Vstudio\Git\CGLab3\CGLAB3\obj\Debug\CGLAB3.Properties.Resources.resources
+D:\Vstudio\Git\CGLab3\CGLAB3\obj\Debug\CGLAB3.csproj.GenerateResource.Cache
+D:\Vstudio\Git\CGLab3\CGLAB3\obj\Debug\CGLAB3.exe
+D:\Vstudio\Git\CGLab3\CGLAB3\obj\Debug\CGLAB3.pdb
