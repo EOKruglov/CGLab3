@@ -21,8 +21,21 @@ namespace CGLAB3
 
         private void glControl1_Load(object sender, EventArgs e)
         {
+            GLGraphics.Resize(glControl1.Width, glControl1.Height);
+        }
+
+        private void glControl1_Paint(object sender, PaintEventArgs e)
+        {
             GLGraphics.Update();
             glControl1.SwapBuffers();
+            GLGraphics.CloseProgram();
+        }
+
+        private void Application_Idle(object sender, PaintEventArgs e)
+        {
+
+            glControl1_Paint(sender, e);
+
         }
     }
 }
