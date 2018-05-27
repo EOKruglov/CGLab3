@@ -99,7 +99,7 @@ namespace CGLAB3
         {
             BasicProgramID = GL.CreateProgram();
             loadShader("D:\\Vstudio\\Git\\CGLab3\\CGLAB3\\raytracing.vert.txt", ShaderType.VertexShader, BasicProgramID, out BasicVertexShader);
-            loadShader("D:\\Vstudio\\Git\\CGLab3\\CGLAB3\\raytracing.frag.txt", ShaderType.FragmentShader, BasicProgramID, out BasicFragmentShader);
+            loadShader("D:\\Vstudio\\Git\\CGLab3\\CGLAB3\\myrt.frag.txt", ShaderType.FragmentShader, BasicProgramID, out BasicFragmentShader);
 
             GL.LinkProgram(BasicProgramID);
 
