@@ -12,3 +12,15 @@ D:\Vstudio\Git\CGLab3\CGLAB3\obj\Debug\CGLAB3.Properties.Resources.resources
 D:\Vstudio\Git\CGLab3\CGLAB3\obj\Debug\CGLAB3.csproj.GenerateResource.Cache
 D:\Vstudio\Git\CGLab3\CGLAB3\obj\Debug\CGLAB3.exe
 D:\Vstudio\Git\CGLab3\CGLAB3\obj\Debug\CGLAB3.pdb
+C:\Users\Kruglov.E\Desktop\CGLab3\CGLAB3\bin\Debug\CGLAB3.exe.config
+C:\Users\Kruglov.E\Desktop\CGLab3\CGLAB3\obj\Debug\CGLAB3.exe
+C:\Users\Kruglov.E\Desktop\CGLab3\CGLAB3\obj\Debug\CGLAB3.pdb
+C:\Users\Kruglov.E\Desktop\CGLab3\CGLAB3\bin\Debug\CGLAB3.exe
+C:\Users\Kruglov.E\Desktop\CGLab3\CGLAB3\bin\Debug\CGLAB3.pdb
+C:\Users\Kruglov.E\Desktop\CGLab3\CGLAB3\bin\Debug\OpenTK.pdb
+C:\Users\Kruglov.E\Desktop\CGLab3\CGLAB3\bin\Debug\OpenTK.xml
+C:\Users\Kruglov.E\Desktop\CGLab3\CGLAB3\bin\Debug\OpenTK.GLControl.xml
+C:\Users\Kruglov.E\Desktop\CGLab3\CGLAB3\obj\Debug\CGLAB3.csprojResolveAssemblyReference.cache
+C:\Users\Kruglov.E\Desktop\CGLab3\CGLAB3\obj\Debug\CGLAB3.Form1.resources
+C:\Users\Kruglov.E\Desktop\CGLab3\CGLAB3\obj\Debug\CGLAB3.Properties.Resources.resources
+C:\Users\Kruglov.E\Desktop\CGLab3\CGLAB3\obj\Debug\CGLAB3.csproj.GenerateResource.Cache
