@@ -11,12 +11,10 @@ struct Sphere {
     vec3 color;
 };
 
-
 struct Ray {
     vec3 origin;
     vec3 direction;
 };
-
 
 struct RayNode {
     Ray ray;
@@ -24,25 +22,23 @@ struct RayNode {
     int depth;
 };
 
-const int sphereNumbers = 4;
-Sphere spheres[4]
-const int Max_Depth = 5;
-const int Max_Nodes = 64;
-RayNode rayNode[Max_Nodes];
-float coeff = 1;
-
 struct HitInfo {
     bool hitDetected;
     vec3 hitPoint;
     vec3 surfaceNormal;
     float distance;
     int objectid;
-    vec3 color;	
+    vec3 color;
 };
-
+const int sphereNumber =11; //2;
+Sphere spheres[11];//2
+const int Max_Depth = 5;
+const int Max_Nodes = 64;
+float coeff = 1;
+RayNode rayNode[Max_Nodes];
 
 void sphereIntersect(Ray ray, int objectid, inout HitInfo hitInfo) {
-    Sphere sphere = spheres[objectid];	
+    Sphere sphere = spheres[objectid];
     vec3 trackToSphere = ray.origin - sphere.position;
     float a = dot(ray.direction, ray.direction);
     float b = 2 * dot(trackToSphere, ray.direction);
@@ -51,42 +47,79 @@ void sphereIntersect(Ray ray, int objectid, inout HitInfo hitInfo) {
 
     if (discriminant > 0.0) {
 	float distance = (-b - sqrt(discriminant)) / (2.0 * a);
-	if (distance > 0.0001 && (distance < hitInfo.distance && hitInfo.hitDetected || !hitInfo.hitDetected)) {
+	if (distance > 0.0001 && hitInfo.objectid ==0 && (distance < hitInfo.distance && hitInfo.hitDetected || !hitInfo.hitDetected)) {
 	    hitInfo.distance = distance;
 	    hitInfo.hitPoint = ray.origin + ray.direction *  hitInfo.distance;
   	    hitInfo.surfaceNormal = normalize(hitInfo.hitPoint - sphere.position);
-	    hitInfo.objectid = objectid;
 	    hitInfo.hitDetected = true;
+	    hitInfo.objectid = objectid;
+	    hitInfo.color = sphere.color;
 	}
     }
 }
 
 vec3 iterativeRayTrace(Ray ray) {
     Sphere sphere;
-    sphere.position = vec3(0.0, 0.0, -1.0);
-    sphere.radius = 0.5;
-    sphere.color = vec3(0.9, 0.5, 0.7);
-	
+    sphere.position = vec3(0.0, 0.0, 0.0);//
+    sphere.radius = 0.1;
+    sphere.color = vec3(1.0, 1.0, 0.0);// желтый
     int numberOfNodes = 1, currentNodeIndex = 0;
-
     spheres[0] = sphere;
 
-    sphere.position = vec3(0.5, 0.5, -0.5);
-    sphere.radius = 0.5;
-    sphere.color = vec3(0.8, 0.6, 0.6);
+    sphere.position = vec3(0.2, 0.0, 0.0);//
+    sphere.radius = 0.1;
+    sphere.color = vec3(1.0, 0.0, 0.0);//красная
     spheres[1] = sphere;
-
-    sphere.position = vec3(1.0, 1.0, 0.0);
-    sphere.radius = 0.5;
-    sphere.color = vec3(0.7, 0.7, 0.5);
+    
+    sphere.position = vec3(0.2, -0.28, 0.0);//
+    sphere.radius = 0.1;
+    sphere.color = vec3(1.0, 0.5, 0.0);//оранжевая
     spheres[2] = sphere;
 
-
-    sphere.position = vec3(1.5, 1.5, 0.5);
-    sphere.radius = 0.5;
-    sphere.color = vec3(0.6, 0.8, 0.4);
+    sphere.position = vec3(0.15, 0.2, 0.0);//
+    sphere.radius = 0.1;
+    sphere.color = vec3(1.0, 0.0, 1.0);//фиолетовая
     spheres[3] = sphere;
 
+    sphere.position = vec3(-0.15, -0.3, 0.0);//
+    sphere.radius = 0.1;                    
+    sphere.color = vec3(0.0, 1.0, 0.0);//зеленый
+    spheres[4] = sphere;
+
+    sphere.position = vec3(-0.3, 0.0, 0.0);//
+    sphere.radius = 0.1;
+    sphere.color = vec3(0.5, 0.8, 1.0);//голубой
+    spheres[5] = sphere;
+
+    sphere.position = vec3(-0.1, 0.25, 0.0);//
+    sphere.radius = 0.1;
+    sphere.color = vec3(0.0, 0.0, 1.0);//синий
+    spheres[6] = sphere;
+
+    /*sphere.position = vec3(0.5, 0.0, 0.0);//
+    sphere.radius = 0.1;
+    sphere.color = vec3(0.0, 1.0, 1.0);// справа от красного
+    spheres[7] = sphere;
+
+    sphere.position = vec3(0.4, 0.4, 0.0);//
+    sphere.radius = 0.1;
+    sphere.color = vec3(0.7, 0.6, 0.5);// над фиолетовой
+    spheres[8] = sphere;*/
+
+	/*sphere.position = vec3(0.0, 1.7, -1.0);//0.3, 0.0
+    sphere.radius = 0.1;
+    sphere.color = vec3(0.0, 0.0, 1.0);//0.6, 0.5, 0.2	
+    spheres[9] = sphere;
+
+sphere.position = vec3(-0.1, 1.9, -1.0);//0.3, 0.0
+    sphere.radius = 0.1;
+    sphere.color = vec3(0.0, 0.0, 1.0);//0.6, 0.5, 0.2	
+    spheres[10] = sphere;
+
+sphere.position = vec3(-0.2, 2.1, -1.0);//0.3, 0.0
+    sphere.radius = 0.1;
+    sphere.color = vec3(0.0, 0.0, 1.0);//0.6, 0.5, 0.2	
+    spheres[11] = sphere;*/
 
     rayNode[currentNodeIndex].ray = ray;
     rayNode[currentNodeIndex].depth = 0;
@@ -94,11 +127,18 @@ vec3 iterativeRayTrace(Ray ray) {
     while (currentNodeIndex < numberOfNodes) {
 	HitInfo hitInfo;
 	hitInfo.hitDetected = false;
-	sphereIntersect(ray, 0, hitInfo);
-        sphereIntersect(ray, 1, hitInfo);
-        sphereIntersect(ray, 2, hitInfo);
+     sphereIntersect(ray, 0, hitInfo);
+     sphereIntersect(ray, 1, hitInfo);
+	sphereIntersect(ray, 2, hitInfo);
 	sphereIntersect(ray, 3, hitInfo);
-
+	sphereIntersect(ray, 4, hitInfo);
+	sphereIntersect(ray, 5, hitInfo);
+	sphereIntersect(ray, 6, hitInfo);
+	sphereIntersect(ray, 7, hitInfo);
+	sphereIntersect(ray, 8, hitInfo);
+		//sphereIntersect(ray, 9, hitInfo);
+		//sphereIntersect(ray, 10, hitInfo);
+		//sphereIntersect(ray, 11, hitInfo);
 	if (hitInfo.hitDetected) {
    	coeff = (dot(ray.direction, hitInfo.surfaceNormal) * dot(ray.direction, hitInfo.surfaceNormal)) / ((dot(ray.direction, ray.direction)) * (dot(hitInfo.surfaceNormal, hitInfo.surfaceNormal)));
 
@@ -110,6 +150,7 @@ vec3 iterativeRayTrace(Ray ray) {
     return rayNode[0].color;
 }
 
+	
 
 void main()
 {
